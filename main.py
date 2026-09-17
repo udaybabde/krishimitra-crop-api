@@ -5,6 +5,15 @@ import numpy as np
 
 app = FastAPI()
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Trained model load karo (yeh file same folder mein honi chahiye)
 model = joblib.load("crop_model.pkl")
 
